@@ -4,7 +4,8 @@ surface.CreateFont("RobotoSmallText", {font = "Roboto", size = ScrH() * 0.015, w
 surface.CreateFont("RobotoButton", {font = "Roboto", size = ScrH() * 0.017, weight = 400, antialias = true})
 
 --[[
-    Default Derma Libary
+    Default UI Libary
+    https://github.com/Defaultik/DefaultUILibary
 ]]
 
 DLib = {}
