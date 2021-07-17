@@ -114,21 +114,6 @@ function DLib.CheckBox(frame, x, y, convar)
     return box
 end
 
---[[function DLib.ComboBox(frame, x, y, defaultValue, fields)
-    local box = vgui.Create("DComboBox", frame)
-    box:SetPos(x, y)
-    box:SetSize(60, 15)
-    for k,v in pairs(fields) do
-        box:AddChoice(v)
-    end
-    box:SetValue(defaultValue)
-    box.Paint = function(s, w, h)
-        draw.RoundedBox(0, 0, 0, w, h, Color(0, 0, 0))
-        draw.RoundedBox(0, 1, 1, w - 2, h - 2, DLib.Color.ComboBox)
-    end
-    return box
-end]]
-
 function DLib.Switch(frame, x, y, convar)
     local button = vgui.Create("DCheckBox", frame)
     button:SetPos(x, (frame.headerHeight or 30) + y)
@@ -154,7 +139,7 @@ function DLib.Switch(frame, x, y, convar)
         draw.RoundedBox(8, button.Lerp, 0, w / 2, h, Color(230, 230, 230))
     end
 
-    function button:OnChange(bVal) -- SPECIAL THANKS FOR THE ARTEMKING4
+    function button:OnChange(bVal) -- SPECIAL THANKS TO THE ARTEMKING4
         if bVal ~= button.prevVal then
             DLib.Sound("buttons/button15.wav", 0.4)
         end
@@ -199,7 +184,7 @@ function DLib.Binder(frame, x, y, convar)
     end
 
     function binder:DoClick()
-        self:SetText("...")
+        self:SetText("...") -- Change fu#king gmod "PRESS ANY KEY"
         input.StartKeyTrapping()
         self.Trapping = true
     end
@@ -221,12 +206,12 @@ function DLib.Slider(frame, x, y, w, h, minValue, maxValue, convar)
         draw.RoundedBox(8, 0, h / 4, w * ((self:GetParent():GetValue() - self:GetParent():GetMin()) / self:GetParent():GetRange()), h / 2, DLib.Color.Top) -- Thanks to the Exec
     end
 
-    -- Fix
+    -- Fix gmod shit
     slider.Label:SetWide(0)
     function slider:PerformLayout() end
 end
 
--- Thanks to Crester for memorizing by means of convars
+-- Special thanks to Crester for memorizing by means of convars
 local r = CreateClientConVar("dlib_color_r", 255, true, false, "", 0, 255)
 local g = CreateClientConVar("dlib_color_g", 255, true, false, "", 0, 255)
 local b = CreateClientConVar("dlib_color_b", 255, true, false, "", 0, 255)
@@ -265,13 +250,5 @@ function DLib.ColorPicker(frame, x, y)
             g:SetInt(col.g)
             b:SetInt(col.b)
         end
-    end
-end
-
-function DLib.TextEntry(frame)
-    local TextEntry = vgui.Create("DTextEntry", frame)
-    TextEntry:Dock(TOP)
-    TextEntry.OnEnter = function(self)
-        chat.AddText(self:GetValue())
     end
 end
