@@ -36,7 +36,7 @@ function DLib.Sound(sound, volume)
 end
 
 function DLib.Frame(x, y, w, h, title)
-	frame = vgui.Create("DFrame")
+    frame = vgui.Create("DFrame")
     frame:MakePopup()
     frame:SetSize(w, h)
     frame:SetDraggable(false)
