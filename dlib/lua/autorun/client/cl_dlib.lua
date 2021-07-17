@@ -189,6 +189,7 @@ function DLib.Binder(frame, x, y, convar)
         input.StartKeyTrapping()
         self.Trapping = true
     end
+    return binder
 end
 
 function DLib.Slider(frame, x, y, w, h, minValue, maxValue, convar)
@@ -210,6 +211,7 @@ function DLib.Slider(frame, x, y, w, h, minValue, maxValue, convar)
     -- Fix gmod shit
     slider.Label:SetWide(0)
     function slider:PerformLayout() end
+    return slider
 end
 
 -- Special thanks to Crester for memorizing by means of convars
@@ -251,5 +253,6 @@ function DLib.ColorPicker(frame, x, y)
             g:SetInt(col.g)
             b:SetInt(col.b)
         end
+        return mixer
     end
 end
