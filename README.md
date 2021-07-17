@@ -30,24 +30,31 @@ end)
 
 ## Usage
 Main Window
+
 ```lua DLib.Frame(coordinate x, coordinate y, width, height, title)```
 
 Button
+
 ```lua DLib.Button(mainframe, coordinate x, coordinate y, width, height, rounding, color, text)```
 
 Checkbox
+
 ```lua DLib.CheckBox(mainframe, coordinate x, coordinate y, convar)```
 
 Switch (Checkbox with another style)
+
 ```lua DLib.Switch(mainframe, coordinate x, coordinate y, convar)```
 
 Key Binder
+
 ```lua DLib.Binder(mainframe, coordinate x, coordinate y, convar)```
 
 Slider
+
 ```lua DLib.Slider(mainframe, coordinate x, coordinate y, width, height, minValue, maxValue, convar)```
 
 Color Picker
+
 ```lua DLib.ColorPicker(mainframe, coordinate x, coordinate y)```
 
 ## Credits
