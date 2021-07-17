@@ -7,6 +7,7 @@ CreateClientConVar("CheckBox", "false", true, true)
 CreateClientConVar("Switch", "false", true, true)
 CreateClientConVar("BinderKey", "NONE", true, true)
 CreateClientConVar("SliderNum", 30, true, true)
+
 concommand.Add("Test", function()
 	frame = DLib.Frame(-1, -1, 600, 400, "Default GUI")
 
