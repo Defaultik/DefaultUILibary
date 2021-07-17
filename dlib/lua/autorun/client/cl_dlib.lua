@@ -150,16 +150,6 @@ function DLib.Switch(frame, x, y, convar)
     return button
 end
 
-function DLib.Text(frame, x, y, text)
-    local label = vgui.Create("DLabel", frame)
-    label:SetPos(x, (frame.headerHeight or 30) + y)
-    label:SetText(text)
-    label:SetFont("RobotoText")
-    label:SizeToContents()
-    label:SetColor(DLib.Color.Text)
-    return label
-end
-
 include("vgui/dbinder.lua")
 function DLib.Binder(frame, x, y, convar)
     binder = vgui.Create("DBinder", frame)
