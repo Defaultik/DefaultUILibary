@@ -9,8 +9,8 @@ CreateClientConVar("BinderKey", "NONE", true, true)
 CreateClientConVar("SliderNum", 30, true, true)
 
 concommand.Add("Test", function()
-	frame = DLib.Frame(-1, -1, 600, 400, "Default GUI")
-
+	local frame = DLib.Frame(-1, -1, 600, 400, "Default GUI")
+	
 	local button = DLib.Button(frame, 5, 15, 120, 22, DLib.RoundingPower, DLib.Color.Top, "Button")
 	button.DoClick = function()
 		LocalPlayer():ChatPrint("Why do you click this?")
