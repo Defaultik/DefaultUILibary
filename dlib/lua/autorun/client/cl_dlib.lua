@@ -43,7 +43,7 @@ end
     Frame
 ]]
 function DLib.Frame(x, y, w, h, title)
-    frame = vgui.Create("DFrame")
+    local frame = vgui.Create("DFrame")
     frame:MakePopup()
     frame:SetSize(w, h)
     frame:SetDraggable(false)
@@ -88,7 +88,7 @@ function DLib.Button(frame, x, y, w, h, rounding, color, text)
     button:SetColor(color)
     button.Lerp = 0
     function button:Paint(w, h)
-        draw.RoundedBox(rounding, 0, 0, w, h, button:GetColor())
+        draw.RoundedBox(rounding, 0, 0, w, h, self:GetColor())
         if self:IsHovered() then
             self.Lerp = Lerp(0.09, self.Lerp, 25)
         else
@@ -113,19 +113,19 @@ function DLib.CheckBox(frame, x, y, convar)
     function box:Paint(w, h)
         draw.RoundedBox(8, 0, 0, w, h, DLib.Color.Top)
         if self:GetChecked() then
-            box.Lerp = Lerp(0.1, box.Lerp, 255)
+            self.Lerp = Lerp(0.1, self.Lerp, 255)
         else
-            box.Lerp = Lerp(0.1, box.Lerp, 0)
+            self.Lerp = Lerp(0.1, self.Lerp, 0)
         end
-        draw.RoundedBox(8, 5, 5, w - 10, h - 10, Color(75, 75, 230, box.Lerp))
+        draw.RoundedBox(8, 5, 5, w - 10, h - 10, Color(75, 75, 230, self.Lerp))
     end
 
     function box:OnChange(bVal) -- SPECIAL THANKS FOR THE ARTEMKING4
-        if bVal ~= box.prevVal then
+        if bVal ~= self.prevVal then
             DLib.Sound("buttons/button15.wav", 0.4)
         end
 
-        box.prevVal = bVal
+        self.prevVal = bVal
     end
     return box
 end
@@ -156,15 +156,15 @@ function DLib.Switch(frame, x, y, convar)
             button.LerpB = Lerp(0.09, button.LerpB, DLib.Color.SwitcherBackgroundOff.b)
         end
         draw.RoundedBox(8, 0, 0, w, h, Color(button.LerpR, button.LerpG, button.LerpB))
-        draw.RoundedBox(8, button.Lerp, 0, w / 2, h, Color(230, 230, 230))
+        draw.RoundedBox(8, self.Lerp, 0, w / 2, h, Color(230, 230, 230))
     end
 
     function button:OnChange(bVal) -- SPECIAL THANKS TO THE ARTEMKING4
-        if bVal ~= button.prevVal then
+        if bVal ~= self.prevVal then
             DLib.Sound("buttons/button15.wav", 0.4)
         end
 
-        button.prevVal = bVal
+        self.prevVal = bVal
     end
     return button
 end
@@ -175,7 +175,7 @@ end
 ]]
 include("vgui/dbinder.lua")
 function DLib.Binder(frame, x, y, convar)
-    binder = vgui.Create("DBinder", frame)
+    local binder = vgui.Create("DBinder", frame)
     binder:SetSize(90, 20)
     binder:SetPos(x, (frame.headerHeight or 30) + y)
     binder:SetConVar(convar)
@@ -183,18 +183,18 @@ function DLib.Binder(frame, x, y, convar)
     binder:SetTextColor(DLib.Color.Text)
 
     function binder:Paint(w, h)
-        draw.RoundedBox(8, 0, 0, binder:GetWide(), binder:GetTall(), Color(100, 100, 255))
+        draw.RoundedBox(8, 0, 0, self:GetWide(), self:GetTall(), Color(100, 100, 255))
 
-        if binder.Hovered then 
-            draw.RoundedBox(8, 0, 0, binder:GetWide(), binder:GetTall(), Color(255, 255, 255, 10))
+        if self.Hovered then 
+            draw.RoundedBox(8, 0, 0, self:GetWide(), self:GetTall(), Color(255, 255, 255, 10))
         end
     end
 
     function binder:OnChange(bVal) -- SPECIAL THANKS FOR THE ARTEMKING4
-        if bVal ~= binder.prevVal then
+        if bVal ~= self.prevVal then
             DLib.Sound("buttons/button14.wav", 0.4)
         end
-        binder.prevVal = bVal
+        self.prevVal = bVal
     end
 
     function binder:DoClick()
@@ -249,8 +249,8 @@ function DLib.ColorPicker(frame, x, y)
     function button:DoClick()
         DLib.Sound("buttons/button15.wav", 0.4)
 
-        panel = vgui.Create("DPanel", frame)
-        panel:SetPos(button:GetX() + 25, y - 50)
+        local panel = vgui.Create("DPanel", frame)
+        panel:SetPos(self:GetX() + 25, y - 50)
         panel:SetSize(170, 170)
         panel:Show()
 
