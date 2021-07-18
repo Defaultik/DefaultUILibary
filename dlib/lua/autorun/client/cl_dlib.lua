@@ -31,10 +31,17 @@ DLib.Material.UpGradient = Material("gui/gradient_up")
 DLib.Material.RightGradient = Material("vgui/gradient-r")
 DLib.Material.LeftGradient = Material("vgui/gradient-l")
 
+--[[
+    Sound
+]]
 function DLib.Sound(sound, volume)
     LocalPlayer():EmitSound(sound, 75, 100, volume, CHAN_AUTO)
 end
 
+
+--[[
+    Frame
+]]
 function DLib.Frame(x, y, w, h, title)
     frame = vgui.Create("DFrame")
     frame:MakePopup()
@@ -69,6 +76,10 @@ function DLib.Frame(x, y, w, h, title)
     return frame
 end
 
+
+--[[
+    Button
+]]
 function DLib.Button(frame, x, y, w, h, rounding, color, text)
     local button = vgui.Create("DButton", frame)
     button:SetPos(x, (frame.headerHeight or 30) + y)
@@ -89,6 +100,10 @@ function DLib.Button(frame, x, y, w, h, rounding, color, text)
     return button
 end
 
+
+--[[
+    Checkbox
+]]
 function DLib.CheckBox(frame, x, y, convar)
     local box = vgui.Create("DCheckBox", frame)
     box:SetPos(x, (frame.headerHeight or 30) + y)
@@ -115,6 +130,10 @@ function DLib.CheckBox(frame, x, y, convar)
     return box
 end
 
+
+--[[
+    Switcher
+]]
 function DLib.Switch(frame, x, y, convar)
     local button = vgui.Create("DCheckBox", frame)
     button:SetPos(x, (frame.headerHeight or 30) + y)
@@ -150,6 +169,10 @@ function DLib.Switch(frame, x, y, convar)
     return button
 end
 
+
+--[[
+    Binder
+]]
 include("vgui/dbinder.lua")
 function DLib.Binder(frame, x, y, convar)
     binder = vgui.Create("DBinder", frame)
@@ -182,6 +205,10 @@ function DLib.Binder(frame, x, y, convar)
     return binder
 end
 
+
+--[[
+    Slider
+]]
 function DLib.Slider(frame, x, y, w, h, minValue, maxValue, convar)
     local slider = vgui.Create("DNumSlider", frame)
     slider:SetPos(x, (frame.headerHeight or 30) + y)
@@ -204,6 +231,10 @@ function DLib.Slider(frame, x, y, w, h, minValue, maxValue, convar)
     return slider
 end
 
+
+--[[
+    Color Picker
+]]
 -- Special thanks to Crester for memorizing by means of convars
 local r = CreateClientConVar("dlib_color_r", 255, true, false, "", 0, 255)
 local g = CreateClientConVar("dlib_color_g", 255, true, false, "", 0, 255)
