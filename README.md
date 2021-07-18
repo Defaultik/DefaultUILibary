@@ -1,5 +1,5 @@
 # DefaultDermaLibary
-The best and simplest UI for Garry's Mod in the world!
+The best and simplest UI with animations for Garry's Mod in the world!
 
 ## Example
 ```lua
