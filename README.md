@@ -1,4 +1,4 @@
-# DefaultDermaLibary
+# DefaultDermaLibrary
 The best and simplest UI with animations for Garry's Mod in the world!
 
 ## Example
