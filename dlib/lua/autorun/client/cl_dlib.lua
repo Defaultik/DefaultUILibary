@@ -38,9 +38,8 @@ function DLib.Sound(sound, volume)
     LocalPlayer():EmitSound(sound, 75, 100, volume, CHAN_AUTO)
 end
 
-
 --[[
-    Frame
+    DFrame
 ]]
 function DLib.Frame(x, y, w, h, title)
     local frame = vgui.Create("DFrame")
@@ -78,7 +77,7 @@ end
 
 
 --[[
-    Button
+    DButton
 ]]
 function DLib.Button(frame, x, y, w, h, rounding, color, text)
     local button = vgui.Create("DButton", frame)
@@ -102,7 +101,7 @@ end
 
 
 --[[
-    Checkbox
+    DCheckBox
 ]]
 function DLib.CheckBox(frame, x, y, convar)
     local box = vgui.Create("DCheckBox", frame)
@@ -132,7 +131,7 @@ end
 
 
 --[[
-    Switcher
+    DCheckBox (Switcher)
 ]]
 function DLib.Switch(frame, x, y, convar)
     local button = vgui.Create("DCheckBox", frame)
@@ -171,7 +170,7 @@ end
 
 
 --[[
-    Binder
+    DBinder
 ]]
 include("vgui/dbinder.lua")
 function DLib.Binder(frame, x, y, convar)
@@ -207,7 +206,7 @@ end
 
 
 --[[
-    Slider
+    DNumSlider
 ]]
 function DLib.Slider(frame, x, y, w, h, minValue, maxValue, convar)
     local slider = vgui.Create("DNumSlider", frame)
@@ -233,7 +232,7 @@ end
 
 
 --[[
-    Color Picker
+    DColorMixer
 ]]
 -- Special thanks to Crester for memorizing by means of convars
 local r = CreateClientConVar("dlib_color_r", 255, true, false, "", 0, 255)
