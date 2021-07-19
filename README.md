@@ -1,5 +1,5 @@
 # DefaultDermaLibrary
-The best and simplest UI with animations for Garry's Mod in the world!
+Simplest UI with animations for Garry's Mod.
 
 ## How i can use this?
 You can create anything with my UI, from F4 to Admin System.
