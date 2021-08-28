@@ -73,5 +73,3 @@ Default#7736 - Main work
 crester#2077 - Help with DColorMixer
 
 Artemking4#5024 - Help with fix lua shit
-
-#### P.S. My first Lua work, do not yell at me pls. You can use this, but please, do not remove/edit my marks!
